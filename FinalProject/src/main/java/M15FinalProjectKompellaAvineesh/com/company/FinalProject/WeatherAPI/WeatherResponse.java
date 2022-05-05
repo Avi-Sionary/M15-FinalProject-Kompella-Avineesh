@@ -3,6 +3,7 @@ package M15FinalProjectKompellaAvineesh.com.company.FinalProject.WeatherAPI;
 import java.util.Map;
 
 public class WeatherResponse {
+    // This is how all the JSON data from calling the Weather API is stored.
     public Map<String, Double> coord;
     public weather[] weather;
     public String base;

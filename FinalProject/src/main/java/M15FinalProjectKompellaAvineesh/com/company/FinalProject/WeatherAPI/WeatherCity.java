@@ -6,14 +6,17 @@ import reactor.core.publisher.Mono;
 
 public class WeatherCity {
 
+    // Makes URL based on city query
     private static String urlMaker(String key, String cityName) {
         return "http://api.openweathermap.org/data/2.5/weather?q=" + cityName + "&units=imperial&appid=" + key;
     }
 
+    // Makes URL based on coordinates query
     private static String urlMaker(String key, double latitude, double longitude) {
         return "http://api.openweathermap.org/data/2.5/weather?lat=" + latitude + "&lon=" + longitude + "&appid=" + key;
     }
 
+    // Tries to get JSON data based on URL. If something goes wrong, the console will report the error
     private static WeatherResponse getJson(String url) {
 
         WebClient weatherClient = WebClient.create(url);
@@ -45,6 +48,8 @@ public class WeatherCity {
         return null;
     }
 
+    // Displays the weather information based on JSON data. Returns the city name in case the user has come here from
+    // option C in FinalProjectApplication.java
     private static String displayInfo(WeatherResponse json) {
 
         System.out.println();
@@ -84,14 +89,19 @@ public class WeatherCity {
         return getCity(json);
     }
 
+    // Gets the city name based on JSON data
     private static String getCity(WeatherResponse json) {
         return json.name;
     }
 
+    // Gets the country name based on JSON data
     private static String getCountry(WeatherResponse json) {
         return json.sys.get("country");
     }
 
+    // Gets city name from the latitude/longitude coordinates, if user is coming here from option C in
+    // FinalProjectApplication.java. If the International Space Station is not currently in a country, the application
+    // will tell the user and return null.
     private static String getCityFromCoords(WeatherResponse json) {
         if (getCountry(json) == null) {
             System.out.println("The ISS is currently not in any country.");
@@ -102,17 +112,18 @@ public class WeatherCity {
         return null;
     }
 
+    // How other classes get the info from the private methods above.
     public static String weatherOption(String option, String cityName, double latitude, double longitude) {
 
         String weatherAPIKey= "312444bc10841f16418912a210aaf02b";
 
-        if (option.equals("BYCITY")) {
+        if (option.equals("BYCITY")) { // If user is searching by city (option A)
             String url = urlMaker(weatherAPIKey, cityName);
             WeatherResponse weatherResponse = getJson(url);
             return displayInfo(weatherResponse);
         }
 
-        else if (option.equals("BYCOORDS")) {
+        else if (option.equals("BYCOORDS")) { // If user is searching by coordinates (option C)
             String url = urlMaker(weatherAPIKey, latitude, longitude);
             WeatherResponse weatherResponse = getJson(url);
             return getCityFromCoords(weatherResponse);
