@@ -2,6 +2,7 @@ package M15FinalProjectKompellaAvineesh.com.company.FinalProject;
 
 import M15FinalProjectKompellaAvineesh.com.company.FinalProject.CoinAPI.CurrentCrypto;
 import M15FinalProjectKompellaAvineesh.com.company.FinalProject.ISSAPI.ISSLocation;
+import M15FinalProjectKompellaAvineesh.com.company.FinalProject.NewsAPI.News;
 import M15FinalProjectKompellaAvineesh.com.company.FinalProject.WeatherAPI.WeatherCity;
 
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -28,7 +29,8 @@ public class FinalProjectApplication {
 					"B) Location of the International Space Station (ISS)\n" +
 					"C) Weather in the Location of the ISS\n" +
 					"D) Current Cryptocurrency Prices\n" +
-					"E) Exit\n");
+					"E) Top News Headlines\n" +
+					"Q) Quit\n");
 
 			String option = scanner.nextLine().toUpperCase();
 
@@ -36,7 +38,7 @@ public class FinalProjectApplication {
 				case "A": // Weather in a City
 					while (subProgram) {
 
-						System.out.println("\nPlease enter a city name. Or, type B to go back, or E to exit altogether: ");
+						System.out.println("\nPlease enter a city name. Or, type B to go back, or Q to quit altogether: ");
 						String city = scanner.nextLine().toUpperCase();
 
 						switch (city) {
@@ -44,7 +46,7 @@ public class FinalProjectApplication {
 								subProgram = false;
 								break;
 
-							case "E": // User wants to quit application
+							case "Q": // User wants to quit application
 								subProgram = false;
 								inProgram = false;
 								System.out.println("Goodbye\n");
@@ -63,8 +65,8 @@ public class FinalProjectApplication {
 						System.out.println("Please wait...\n");
 						ISSLocation.issOption("B");
 
-						System.out.println("\nPlease press enter or return to try again. Or, type B to go back, or E to " +
-								"exit altogether: ");
+						System.out.println("\nPlease press enter or return to try again. Or, type B to go back, or Q to " +
+								"quit altogether: ");
 						String choice = scanner.nextLine().toUpperCase();
 
 						switch (choice) {
@@ -72,7 +74,7 @@ public class FinalProjectApplication {
 								subProgram = false;
 								break;
 
-							case "E": // User wants to quit application
+							case "Q": // User wants to quit application
 								subProgram = false;
 								inProgram = false;
 								System.out.println("Goodbye\n");
@@ -90,8 +92,8 @@ public class FinalProjectApplication {
 						System.out.println("Please wait...\n");
 						ISSLocation.issOption("C");
 
-						System.out.println("\nPlease press enter or return to try again. Or, type B to go back, or E to " +
-								"exit altogether: ");
+						System.out.println("\nPlease press enter or return to try again. Or, type B to go back, or Q to " +
+								"quit altogether: ");
 						String choice = scanner.nextLine().toUpperCase();
 
 						switch (choice) {
@@ -99,7 +101,7 @@ public class FinalProjectApplication {
 								subProgram = false;
 								break;
 
-							case "E": // User wants to quit application
+							case "Q": // User wants to quit application
 								subProgram = false;
 								inProgram = false;
 								System.out.println("Goodbye\n");
@@ -120,8 +122,8 @@ public class FinalProjectApplication {
 						System.out.println("Please wait...\n");
 						CurrentCrypto.coinOption(symbol);
 
-						System.out.println("\nPlease press enter or return to try again. Or, type B to go back, or E to " +
-								"exit altogether: ");
+						System.out.println("\nPlease press enter or return to try again. Or, type B to go back, or Q to " +
+								"quit altogether: ");
 
 						String choice = scanner.nextLine().toUpperCase();
 
@@ -130,7 +132,7 @@ public class FinalProjectApplication {
 								subProgram = false;
 								break;
 
-							case "E": // User wants to quit application
+							case "Q": // User wants to quit application
 								subProgram = false;
 								inProgram = false;
 								System.out.println("Goodbye\n");
@@ -142,7 +144,32 @@ public class FinalProjectApplication {
 					}
 					break;
 
-				case "E": // User wants to quit application
+				case "E": // User wants top news based on search query
+					while (subProgram) {
+
+						System.out.println("\nPlease enter a topic for the news you want to search about. " +
+								"Or, type B to go back, or Q to quit altogether: ");
+						String query = scanner.nextLine().toUpperCase();
+
+						switch (query) {
+							case "B": // User wants to go back to main menu
+								subProgram = false;
+								break;
+
+							case "Q": // User wants to quit application
+								subProgram = false;
+								inProgram = false;
+								System.out.println("Goodbye\n");
+								break;
+
+							default: // User has typed in a topic to get news about
+								System.out.println("Please wait...\n");
+								News.newsOption(query);
+						}
+					}
+					break;
+
+				case "Q": // User wants to quit application
 					inProgram = false;
 					System.out.println("Goodbye\n");
 					break;
