@@ -10,7 +10,7 @@ public class News {
     // Makes URL based on search query
     private static String urlMaker(String key, String query) {
         return "https://newsapi.org/v2/everything?q=" + query +
-                "&from=2022-05-09&to=2022-05-09&sortBy=popularity&apiKey=" + key;
+                "&sortBy=popularity&apiKey=" + key;
     }
 
     // Tries to get JSON data based on URL. If something goes wrong, the console will report the error
