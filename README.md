@@ -26,19 +26,33 @@ Creates a menu for users to select the information they want to receive, as foll
 
 Allows users to input a city and print the weather in that city.
 
+![ProjectDemo](https://user-images.githubusercontent.com/22825635/173209884-8a138206-c714-4718-9e3c-63e8de909e95.gif)
+
 ### Location of the International Space Station (ISS)
 
 Returns the current latitude and longitude of the ISS and uses the Weather API to return the city and country that correspond to those coordinates.
 
 If the coordinates return null for the country, the app prints that the ISS is not currently in a country.
 
+![ProjectDemo2](https://user-images.githubusercontent.com/22825635/173210062-f45e9ec0-f57f-4cee-b43a-a067b2e544b7.gif)
+
 ### Weather in the Location of the ISS
 
 Returns the same information as the second option but also returns the weather in that location, even if there is no valid country.
 
+![ProjectDemo3](https://user-images.githubusercontent.com/22825635/173210069-57099f31-025b-49be-bf99-aab9da5a6104.gif)
+
 ### Current Cryptocurrency Prices
 
 Allows a user to input the symbol of a cryptocurrency (such as BTC or ETH) and returns the name of the currency, the symbol, and the current price in USD, formatted into proper USD format ($10,000.00).
+
+![ProjectDemo4](https://user-images.githubusercontent.com/22825635/173210073-0e309603-0317-4b1e-aec3-4bf3560bea5a.gif)
+
+### BONUS: Popular News Articles
+
+Allows a user to input a search query representing a topic and returns a list of articles related to that query sorted by popularity. 
+
+![ProjectDemo5](https://user-images.githubusercontent.com/22825635/173210092-e66fd2fa-aa7c-452f-b363-815154863328.gif)
 
 ### Exit
 
