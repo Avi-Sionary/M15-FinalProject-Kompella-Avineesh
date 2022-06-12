@@ -52,6 +52,8 @@ Allows a user to input the symbol of a cryptocurrency (such as BTC or ETH) and r
 
 Allows a user to input a search query representing a topic and returns a list of articles related to that query sorted by popularity. 
 
+Includes article title, author, publication date, and URL link to the article.
+
 ![ProjectDemo5](https://user-images.githubusercontent.com/22825635/173210092-e66fd2fa-aa7c-452f-b363-815154863328.gif)
 
 ### Exit
